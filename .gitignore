@@ -3,6 +3,8 @@ capybara-*.html
 .rspec
 /log
 /tmp
+!/log/.keep
+!/tmp/.keep
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
@@ -30,6 +32,10 @@ config/master.key
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
@@ -45,5 +51,11 @@ bower.json
 .byebug_history
 
 # Ignore node_modules
-node_modules/
+/node_modules
+/yarn-error.log
 
+# Ignore Spring files.
+/spring/*.pid
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

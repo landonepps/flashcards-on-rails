@@ -1,0 +1,31 @@
+Rails:
+  Enabled: true
+
+# From https://github.com/airbnb/ruby/tree/master/rubocop-airbnb/config
+inherit_from:
+  - './.rubocop_bundler.yml'
+  - './.rubocop_layout.yml'
+  - './.rubocop_performance.yml'
+  - './.rubocop_rails.yml'
+  - './.rubocop_security.yml'
+  - './.rubocop_style.yml'
+
+# All files to be excluded
+AllCops:
+  Exclude:
+    - "bin/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "dist/**/*"
+    - "features/**/*"
+    - "**/node_modules/**/*"
+    - "script/**/*"
+    - "**/spec/**/*"
+    - "**/test/**/*"
+    - "**/tests/**/*"
+    - "**/vendor/**/*"
+    - "**/*.d.ts"
+    - Vagrantfile
+    - Guardfile
+    - Gemfile
+    - Rakefile
