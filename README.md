@@ -1,24 +1,46 @@
-# README
+# Tasks on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<https://github.com/everyleaf/el-training/blob/master/docs/el-training.md>
 
-Things you may want to cover:
+## DB スキーマ
 
-* Ruby version
+Users
 
-* System dependencies
+| カラム名        | データ型 |
+| --------------- | -------- |
+| id              | int      |
+| username        | varchar  |
+| password_digest | varchar  |
 
-* Configuration
+Tasks
 
-* Database creation
+| カラム名    | データ型 |
+| ----------- | -------- |
+| id          | int      |
+| user_id     | int      |
+| name        | varchar  |
+| description | text     |
+| deadline    | datetime |
+| priority    | int      |
+| status      | int      |
 
-* Database initialization
+Tags
 
-* How to run the test suite
+| カラム名 | データ型 |
+| -------- | -------- |
+| id       | int      |
+| name     | varchar  |
 
-* Services (job queues, cache servers, search engines, etc.)
+UserTags
 
-* Deployment instructions
+| カラム名 | データ型 |
+| -------- | -------- |
+| user_id  | int      |
+| tag_id   | int      |
 
-* ...
+TaskTags
+
+| カラム名 | データ型 |
+| -------- | -------- |
+| task_id  | int      |
+| tag_id   | int      |
