@@ -1,0 +1,47 @@
+<div class="box">
+  <%= form_for @new_task do | f | %>
+    <div class="field is-grouped">
+      <p class="control is-expanded">
+        <input class="input" type="text" placeholder="New task">
+      </p>
+      <p class="control">
+        <button class="button level-item" type="submit">Add</button>
+      </p>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <div class="level-item field is-grouped">
+          <label class="label">Due:</label>
+          <p class="control">
+            <div class="select">
+              <select></select>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="level-item field is-grouped">
+          <label class="label">Priority:</label>
+          <p class="control">
+            <div class="select">
+              <%= f.select :priority, Task.priorities.map.to_a,
+                                      selected: Task.priorities[:medium] %>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="level-item field is-grouped">
+          <label class="label">Tags:</label>
+          <p class="control">
+            <div class="select">
+              <%= f.select :tags, @current_user.tags.map { | tag | tag.name },
+                                      selected: Task.priorities[:medium] %>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

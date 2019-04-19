@@ -36,6 +36,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Use Bulma for a CSS framework
+gem 'bulma-rails', '~> 0.7.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -55,11 +58,11 @@ group :development do
 end
 
 group :test do
-  gem "rails-controller-testing", "~> 1.0"
-  gem "minitest", "~> 5.11"
-  gem "minitest-reporters", "~> 1.3"
-  gem "guard", "~> 2.15"
-  gem "guard-minitest", "~> 2.4"
+  gem 'rails-controller-testing', '~> 1.0'
+  gem 'minitest', '~> 5.11'
+  gem 'minitest-reporters', '~> 1.3'
+  gem 'guard', '~> 2.15'
+  gem 'guard-minitest', '~> 2.4'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
