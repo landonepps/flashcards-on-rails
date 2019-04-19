@@ -5,7 +5,7 @@ Rails:
 inherit_from:
   - './.rubocop_bundler.yml'
   - './.rubocop_layout.yml'
-  - './.rubocop_performance.yml'
+  # - './.rubocop_performance.yml' # removed
   - './.rubocop_rails.yml'
   - './.rubocop_security.yml'
   - './.rubocop_style.yml'
