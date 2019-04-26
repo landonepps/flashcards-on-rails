@@ -36,8 +36,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Use Bulma for a CSS framework
-gem 'bulma-rails', '~> 0.7.4'
+# Use Bootstrap for a CSS framework
+gem 'bootstrap', '~> 4.3.1'
+# Bootstrap's JavaScript depends on jQuery
+gem 'jquery-rails'
+# Fontawesome for icons
+gem 'font-awesome-sass', '~> 5.8.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

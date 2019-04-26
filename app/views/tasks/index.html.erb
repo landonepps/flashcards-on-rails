@@ -1,23 +1,30 @@
-<%= render 'layouts/new_task'%>
+<h1 class="mb-4">All Tasks</h1>
 
-<h1 class="title">All Tasks</h1>
-
-<% @tasks.each do | task | %>
-<div class="box level is-mobile">
-  <div class="level-left">
-    <div class="level-item">
-      <a class="button">
-        <%= task.status %>
-      </a>
-    </div>
-    <div class="level-item">
-      <%= link_to task.name, task_path(task), class: "is-size-5" %>
-    </div>
-  </div>
-  <div class="level-right">
-    <div class="level-item">
-      Due: <%= task.deadline.strftime("%-m/%-d") %>
-    </div>
-  </div>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @tasks.each do | task | %>
+      <li class="list-group-item container">
+        <table>
+          <tr>
+            <td>
+              <% if task.started? %>
+                <i class="far fa-circle"></i>
+              <% elsif task.complete? %>
+                <i class="far fa-check-circle"></i>
+              <% else %>
+                <i class="far fa-dot-circle"></i>
+              <% end %>
+            </td>
+            <td class="pl-3 w-100">
+              <%= link_to task.name, task_path(task), class: ['text-dark'] %>
+            </td>
+            <td class="text-nowrap text-md-right">
+              <%= task.deadline.strftime("%-m/%-d") %>
+            </td>
+          </tr>
+        </table>
+      </li>
+    <% end %>
+  </ul>
 </div>
-<% end %>
+
