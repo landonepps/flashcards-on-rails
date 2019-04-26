@@ -1,9 +1,9 @@
 <h1 class="mb-4">All Tasks</h1>
 
 <div class="card">
-  <ul class="list-group list-group-flush">
+  <ul class="task-list list-group list-group-flush">
     <% @tasks.each do | task | %>
-      <li class="list-group-item container">
+      <li class="task-list-row list-group-item container">
         <table>
           <tr>
             <td>
@@ -16,7 +16,7 @@
               <% end %>
             </td>
             <td class="pl-3 w-100">
-              <%= link_to task.name, task_path(task), class: ['text-dark'] %>
+              <%= link_to task.name, task_path(task), class: ['text-dark', 'lead'] %>
             </td>
             <td class="text-nowrap text-md-right">
               <%= task.deadline.strftime("%-m/%-d") %>
