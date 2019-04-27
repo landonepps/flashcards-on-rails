@@ -1,13 +1,55 @@
 class TasksController < ApplicationController
   def index
-    # TODO: get current user
-    @current_user = User.find_by(id: 1)
-
-    @new_task = @current_user.tasks.build
-    @tasks = Task.where(user: @current_user)
+    @tasks = Task.where(user: current_user).order(deadline: :asc)
   end
 
   def show
     @task = Task.find(params[:id])
+  end
+
+  def new
+    @current_user = current_user
+    @new_task = current_user.tasks.build
+  end
+
+  def edit
+    @current_user = current_user
+    @task = Task.find(params[:id])
+  end
+
+  def create
+    @task = current_user.tasks.build(task_params)
+
+    if @task.save
+      redirect_to @task
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update_attributes(task_params)
+      redirect_to @task
+    else
+      render 'edit'
+    end
+  end
+
+  # def destroy
+  # end
+
+  # private methods
+  private
+
+  def task_params
+    params.require(:task).permit(:name, :description, :deadline,
+                                 :priority, :status, tag_ids: [])
+  end
+
+  # TODO: get current user
+  # I haven't implemented users yet, so this is just a stub
+  def current_user
+    User.find_by(id: 1)
   end
 end

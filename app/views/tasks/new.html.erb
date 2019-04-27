@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between mb-3">
+  <%= link_to root_path, class:["btn", "btn-outline-dark"] do %>
+    <%= icon("fas", "arrow-left", class: "pr-1") %> Show All
+  <% end %>
+</div>
+
+<div class="card">
+  <div class="card-body p-5">
+    <%= form_for @new_task, html: { autocomplete: "off" } do | f | %>
+      <div class="form-group row">
+        <%= f.label :name, class: "col-md-3 col-form-label text-md-right" %>
+        <div class="col-md-9">
+          <%= f.text_field :name, class: "form-control", placeholder: "Task name" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :description, class: "col-md-3 col-form-label text-md-right" %>
+        <div class="col-md-9">
+          <%= f.text_area :description, class: "form-control", rows: "3", placeholder: "Task description (optional)"%>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :deadline, class: "col-md-3 col-form-label text-md-right" %>
+        <div class="col-md-9">
+          <%= f.date_field :deadline, value: Date.tomorrow, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :priority, class: "col-md-3 col-form-label text-md-right" %>
+        <div class="col-md-9">
+          <%= f.select :priority, Task.priorities.keys.map { | p | [p.titlecase, p]},
+                                  { selected: "medium" },
+                                  { class: "custom-select" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :tags, class: "col-md-3 col-form-label text-md-right" %>
+        <div class="col-md-9">
+          <%= f.select :tag_ids, @current_user.tags.map { | tag | [tag.name, tag.id] },
+                              { include_blank: "No Tags" },
+                              { class: "custom-select", multiple: true } %>
+        </div>
+      </div>
+
+      <%= f.submit "Create Task", class: ["btn", "btn-primary"] %>
+    <% end %>
+  </div>
+</div>
