@@ -1,5 +1,50 @@
+
+<div class="d-flex justify-content-between mb-3">
+  <%= link_to root_path, class:["btn", "btn-outline-dark"] do %>
+    <%= icon("fas", "arrow-left", class: "pr-1") %> Show All
+  <% end %>
+  <%= link_to edit_task_path(@task), class:["btn", "btn-primary"] do %>
+    Edit
+  <% end %>
+</div>
+
 <div class="card">
   <div class="card-body">
-    <h2><%= @task.name %></h2>
+    <table class="table table-borderless">
+      <tr>
+        <th>
+          <h3 class="text-right mb-0">
+            <%= icon("far", status_icon(@task))%>
+          </h3>
+        </th>
+        <td class="w-100">
+          <h3 class="mb-0">
+            <%= @task.name %>
+          </h3>
+        </td>
+      </tr>
+      <% if @task.description.present? %>
+        <tr>
+          <th></th>
+          <td><%= @task.description %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <th class="text-right">Due:</th>
+        <td><%= @task.deadline.strftime("%-m/%-d") %></td>
+      </tr>
+      <tr>
+        <th class="text-right">Priority:</th>
+        <td><%= @task.priority.to_s.titlecase %></td>
+      </tr>
+      <tr>
+        <th class="text-right">Tags:</th>
+        <td>
+        <% @task.tags.each do | tag | %>
+          <span class="badge badge-primary mr-2"><%= tag.name %></span>
+        <% end %>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>

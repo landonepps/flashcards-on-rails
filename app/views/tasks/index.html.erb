@@ -1,28 +1,31 @@
-<h1 class="mb-4">All Tasks</h1>
+<div class="d-flex align-items-center mb-3">
+  <div class="pr-2">Sort by:</div>
+  <div class="flex-shrink-1">
+    <select class="custom-select custom-select-sm">
+      <option>Deadline</option>
+      <option>Priority</option>
+      <option>Status</option>
+    </select>
+  </div>
+
+  <%= link_to new_task_path, class:["btn", "btn-primary", "ml-auto"] do %>
+    New Task
+  <% end %>
+</div>
 
 <div class="card">
   <ul class="task-list list-group list-group-flush">
     <% @tasks.each do | task | %>
-      <li class="task-list-row list-group-item container">
-        <table>
-          <tr>
-            <td>
-              <% if task.started? %>
-                <i class="far fa-circle"></i>
-              <% elsif task.complete? %>
-                <i class="far fa-check-circle"></i>
-              <% else %>
-                <i class="far fa-dot-circle"></i>
-              <% end %>
-            </td>
-            <td class="pl-3 w-100">
-              <%= link_to task.name, task_path(task), class: ['text-dark', 'lead'] %>
-            </td>
-            <td class="text-nowrap text-md-right">
-              <%= task.deadline.strftime("%-m/%-d") %>
-            </td>
-          </tr>
-        </table>
+      <li class="task-list-row list-group-item d-flex align-items-center">
+        <div>
+          <%= icon("far", status_icon(task))%>
+        </div>
+        <div class="pl-3 flex-grow-1 lead">
+          <%= link_to task.name, task_path(task), class: ['text-dark'] %>
+        </div>
+        <div class="text-md-right lead">
+          <%= task.deadline.strftime("%-m/%-d") %>
+        </div>
       </li>
     <% end %>
   </ul>

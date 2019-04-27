@@ -11,8 +11,16 @@
  * It is generally better to create a new file per style scope.
  */
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- // https://github.com/twbs/bootstrap-rubygem/blob/master/assets/stylesheets/bootstrap/_variables.scss
+// Bootstrap's default container width is too large
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  // lg: 960px,
+  // xl: 1140px
+) !default;
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+// https://github.com/twbs/bootstrap-rubygem/blob/master/assets/stylesheets/bootstrap/_variables.scss
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
