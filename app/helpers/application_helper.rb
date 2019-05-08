@@ -1,4 +1,6 @@
 module ApplicationHelper
+  ##
+  # Returns the Bootstrap class for a given flash key
   def flash_class(flash_key)
     base_class = "alert alert-dismissible fade show"
     case flash_key
