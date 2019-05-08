@@ -15,6 +15,9 @@
 
 <div class="card">
   <ul class="task-list list-group list-group-flush">
+    <% if @tasks.empty? %>
+      <div class="p-3 lead text-center">No tasks.</div>
+    <% end %>
     <% @tasks.each do | task | %>
       <li class="task-list-row list-group-item d-flex align-items-center">
         <div>
