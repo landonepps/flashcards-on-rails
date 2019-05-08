@@ -36,8 +36,17 @@ class TasksController < ApplicationController
     end
   end
 
-  # def destroy
-  # end
+  def destroy
+    deleted_task = Task.find(params[:id]).destroy
+
+    if deleted_task.destroyed?
+      flash[:success] = "Task deleted"
+    else
+      flash[:alert] = "Error deleting task"
+    end
+
+    redirect_to root_url
+  end
 
   # private methods
   private
