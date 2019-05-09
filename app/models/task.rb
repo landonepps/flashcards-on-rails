@@ -6,5 +6,5 @@ class Task < ApplicationRecord
   attribute :status, :integer, default: :not_started
 
   enum status: [:not_started, :started, :complete]
-  enum priority: [:low, :medium, :high]
+  enum priority: [:high, :medium, :low]
 end
