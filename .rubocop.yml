@@ -1,6 +1,10 @@
 Rails:
   Enabled: true
 
+# 10 is way short
+Metrics/MethodLength:
+  Max: 20
+
 # From https://github.com/airbnb/ruby/tree/master/rubocop-airbnb/config
 inherit_from:
   - './.rubocop_bundler.yml'
