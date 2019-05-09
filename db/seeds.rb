@@ -20,16 +20,16 @@ sample_task = Task.new(user_id: 1, name: "A sample task in progress",
 sample_task.tags << tag1
 sample_task.save
 
-sample_task = Task.new(user_id: 1, name: "A completed sample task",
+sample_task = Task.new(user_id: 1, name: "A completed high-priority sample task",
                        deadline: 14.days.from_now,
-                       priority: :low, status: :complete)
+                       priority: :high, status: :complete)
 sample_task.tags << tag1
 sample_task.tags << tag2
 sample_task.save
 
 sample_task = Task.new(user_id: 1,
-                       name: "A sample task with a moderately long name",
+                       name: "A medium-priority sample task that hasn't been started",
                        deadline: 20.days.from_now,
-                       priority: :low, status: :not_started)
+                       priority: :medium, status: :not_started)
 sample_task.tags << tag2
 sample_task.save
