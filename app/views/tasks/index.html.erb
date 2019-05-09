@@ -29,7 +29,9 @@
             <%= link_to task.name, task_path(task), class: ["text-dark", "lead-sm"] %>
           </div>
           <div>
-            <span class="align-self-center mr-1 <%= priority_badge_class(task.priority) %>"><%= task.priority.to_s.titlecase %></span>
+            <span class="align-self-center mr-1 <%= priority_badge_class(task.priority) %>">
+              <%= task.priority.to_s.titlecase %>
+            </span>
             <% task.tags.each do | tag | %>
               <span class="mr-1 <%= tag_badge_class %>"><%= tag.name %></span>
             <% end %>
