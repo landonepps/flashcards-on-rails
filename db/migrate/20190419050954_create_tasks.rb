@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.string :name
       t.text :description
-      t.datetime :deadline
+      t.date :deadline
       t.integer :priority
       t.integer :status
 

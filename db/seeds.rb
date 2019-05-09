@@ -11,16 +11,21 @@
 user = User.create(username: "user1", password: "foobar",
                    password_confirmation: "foobar")
 
-tag1 = user.tags.create(name: "tag1")
-tag2 = user.tags.create(name: "tag2")
+tag1 = user.tags.create(name: "Project 1")
+tag2 = user.tags.create(name: "Sprint 2")
 
 sample_task = Task.new(user_id: 1, name: "A sample task in progress",
+                       description: "Lorem ipsum dolor sit amet, consectetur \
+                                     adipiscing elit, sed do eiusmod tempor \
+                                     incididunt ut labore et dolore magna aliqua.",
                        deadline: 10.days.from_now,
                        priority: :low, status: :started)
 sample_task.tags << tag1
 sample_task.save
 
 sample_task = Task.new(user_id: 1, name: "A completed high-priority sample task",
+                       description: "According to all known laws of aviation, \
+                                     there is no way a bee should be able to fly.",
                        deadline: 14.days.from_now,
                        priority: :high, status: :complete)
 sample_task.tags << tag1
