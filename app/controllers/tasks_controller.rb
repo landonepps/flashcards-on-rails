@@ -21,17 +21,24 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
 
     if @task.save
+      flash[:success] = "Task added"
       redirect_to @task
     else
+      # TODO: Provide constructive errors (based on validation)
+      flash.now[:error] = "Error creating task"
       render 'new'
     end
   end
 
   def update
     @task = Task.find(params[:id])
+
     if @task.update_attributes(task_params)
+      flash[:success] = "Task updated"
       redirect_to @task
     else
+      # TODO: Provide constructive errors (based on validation)
+      flash.now[:error] = "Error editing task"
       render 'edit'
     end
   end
@@ -41,11 +48,11 @@ class TasksController < ApplicationController
 
     if deleted_task.destroyed?
       flash[:success] = "Task deleted"
+      redirect_to root_url
     else
-      flash[:alert] = "Error deleting task"
+      flash.now[:error] = "Error deleting task"
+      render 'edit'
     end
-
-    redirect_to root_url
   end
 
   # private methods
