@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(user: current_user).order(deadline: :asc)
+    @sort_options = ["deadline", "priority", "status"]
+    @sort_method = params[:sort] || "deadline"
+    @tasks = Task.where(user: current_user).order(@sort_method => :asc)
   end
 
   def show
