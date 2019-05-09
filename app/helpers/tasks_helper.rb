@@ -10,4 +10,20 @@ module TasksHelper
       "circle"
     end
   end
+
+  ##
+  # Returns the Bootstrap badge class for a given status type
+  def priority_badge_class(type)
+    case type
+    when "high" then "badge badge-danger"
+    when "medium" then "badge badge-primary"
+    when "low" then "badge badge-success"
+    end
+  end
+
+  ##
+  # Returns the Bootstrap badge class for a tag
+  def tag_badge_class
+    "badge badge-warning"
+  end
 end
