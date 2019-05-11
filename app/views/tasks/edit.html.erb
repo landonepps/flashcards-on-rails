@@ -52,7 +52,7 @@
       </div>
 
       <div class="form-group row">
-        <%= f.label :tags, class: "col-md-3 col-form-label text-md-right" %>
+        <%= f.label :tag_ids, 'Tags', class: "col-md-3 col-form-label text-md-right" %>
         <div class="col-md-9">
           <%= f.select :tag_ids, @current_user.tags.map { | tag | [tag.name, tag.id] },
                                  { include_blank: "No Tags" },
