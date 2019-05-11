@@ -74,6 +74,6 @@ class TasksController < ApplicationController
   # TODO: get current user
   # I haven't implemented users yet, so this is just a stub
   def current_user
-    User.find_by(id: 1)
+    User.first
   end
 end
