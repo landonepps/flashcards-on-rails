@@ -2,6 +2,8 @@
 
 <https://github.com/everyleaf/el-training/blob/master/docs/el-training.md>
 
+<img width="523" src="https://user-images.githubusercontent.com/1572318/57565455-3f720a00-73f9-11e9-88fc-8795ab2a8da5.png">
+
 ## DB スキーマ
 
 users
