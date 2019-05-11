@@ -4,43 +4,43 @@
 
 ## DB スキーマ
 
-Users
+users
 
-| カラム名        | データ型 |
+| カラム名          | データ型   |
 | --------------- | -------- |
 | id              | int      |
 | username        | varchar  |
 | password_digest | varchar  |
 
-Tasks
+tasks
 
-| カラム名    | データ型 |
-| ----------- | -------- |
-| id          | int      |
-| user_id     | int      |
-| name        | varchar  |
-| description | text     |
-| deadline    | datetime |
-| priority    | int      |
-| status      | int      |
+| カラム名      | データ型     |
+| ----------- | ---------- |
+| id          | int        |
+| user_id     | int        |
+| name        | varchar    |
+| description | text       |
+| deadline    | date       |
+| priority    | int (enum) |
+| status      | int (enum) |
 
-Tags
+tags
 
-| カラム名 | データ型 |
+| カラム名   | データ型   |
 | -------- | -------- |
 | id       | int      |
 | name     | varchar  |
 
-UserTags
+tags_users
 
-| カラム名 | データ型 |
+| カラム名   | データ型   |
 | -------- | -------- |
 | user_id  | int      |
 | tag_id   | int      |
 
-TaskTags
+tags_tasks
 
-| カラム名 | データ型 |
+| カラム名   | データ型   |
 | -------- | -------- |
 | task_id  | int      |
 | tag_id   | int      |
