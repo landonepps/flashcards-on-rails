@@ -1,7 +1,10 @@
 class TasksController < ApplicationController
   def index
+    # set different ways to sort tasks
     @sort_options = ["deadline", "priority", "status"]
+    # use the selected method or default to "deadline"
     @sort_method = params[:sort] || "deadline"
+    # show the current user's tasks sorted in ascending order
     @tasks = Task.where(user: current_user).order(@sort_method => :asc)
   end
 
@@ -11,7 +14,7 @@ class TasksController < ApplicationController
 
   def new
     @current_user = current_user
-    @new_task = current_user.tasks.build
+    @new_task = current_user.tasks.new
   end
 
   def edit
@@ -20,13 +23,16 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.build(task_params)
+    # create a new task for the current user
+    # this is the way to do it for has_many relationships
+    @task = current_user.tasks.new(task_params)
 
     if @task.save
       flash[:success] = "Task added"
       redirect_to @task
     else
       # TODO: Provide constructive errors (based on validation)
+      # use flash.now for render
       flash.now[:error] = "Error creating task"
       render 'new'
     end
