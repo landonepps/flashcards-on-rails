@@ -67,8 +67,6 @@ RSpec.describe "Tasks", type: :system do
     click_link task.name
     click_link "Edit"
     click_link "Delete"
-    # we need to accept delete confirmation or selenium will complain
-    page.driver.browser.switch_to.alert.accept
     expect(page).to have_content "Task deleted"
     expect(page).to_not have_content task.name
   end
