@@ -31,4 +31,5 @@ AllCops:
     - Vagrantfile
     - Guardfile
     - Gemfile
+    - Gemfile.lock
     - Rakefile
