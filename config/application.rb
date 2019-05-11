@@ -18,7 +18,6 @@ module TasksOnRails
 
     config.generators do |g|
       g.test_framework :rspec,
-                       fixtures: false, # we'll change to true later when we start using factories
                        view_specs: false, # we'll use system specs to test interface elements
                        helper_specs: false, # skip testing helper files for now
                        routing_specs: false # skip testing routes.rb for now
