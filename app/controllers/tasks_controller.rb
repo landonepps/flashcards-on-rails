@@ -63,6 +63,23 @@ class TasksController < ApplicationController
     end
   end
 
+  def toggle_status
+    task = Task.find(params[:id])
+
+    case task.status
+    when "not_started"
+      task.status = :started
+    when "started"
+      task.status = :complete
+    when "complete"
+      task.status = :not_started
+    end
+
+    if task.save
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   # private methods
   private
 

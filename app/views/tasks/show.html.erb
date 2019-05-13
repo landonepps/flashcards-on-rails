@@ -13,9 +13,13 @@
     <table class="table table-borderless">
       <tr>
         <th>
-          <h4 class="text-right mb-0">
-            <%= icon("far", status_icon(@task))%>
-          </h4>
+          <%= link_to toggle_status_task_path(@task),
+                    class: ["text-dark", "lead"],
+                    data: { remote: true, method: "POST" } do %>
+            <h4 class="text-right mb-0">
+              <%= icon("far", status_icon(@task))%>
+            </h4>
+            <% end %>
         </th>
         <td class="w-100">
           <h4 class="mb-0">
